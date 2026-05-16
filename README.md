@@ -1,6 +1,6 @@
 # Cloudflare AI Gateway Course
 
-> **2 小時 Workshop · 15 學員 · 樂雲智能 LEYUN**
+> **2 小時 Workshop · 碩士生課程 · 樂雲智能 LEYUN**
 >
 > 從 0 開始打造一個跑在 Cloudflare Workers 上的 AI 對話助理，
 > 透過 AI Gateway 統一治理 51+ LLM 模型，並用 MCP 協議整合外部工具。
@@ -13,8 +13,8 @@
 
 ## 📚 課程簡介
 
-本專案是 **樂雲智能 LEYUN** 內訓 / 公開課使用的教材，
-精簡自 `chatagentbot` 商用實作（已上線於 `chat.winerjee.com`），
+本專案是 **樂雲智能 LEYUN** 提供給碩士生 / 高階研究所學員的開源教材，
+作為理解現代 AI 系統架構（邊緣運算 × 多模型治理 × Agentic 工具呼叫）的入門骨架。
 保留兩個核心模組供學員理解 Cloudflare AI Gateway 的全鏈路：
 
 | 模組 | 說明 |

@@ -25,7 +25,7 @@
 | 00:30–00:55 | 25 min | **實作專案架構導覽** | Code Walk |
 | 00:55–01:00 | 5 min | 中場休息 | — |
 | 01:00–01:45 | 45 min | **動手實作：5 分鐘啟動你的 AI Bot** | Hands-on |
-| 01:45–02:00 | 15 min | **Q&A + 延伸方向 + 樂雲商用方案** | 互動 |
+| 01:45–02:00 | 15 min | **Q&A + 延伸自學 + 研究議題** | 互動 |
 
 ---
 
@@ -67,7 +67,7 @@
     └─ Cache + Logging（90 天保留）
 
 2.3 講師線上 Demo
-    └─ chat.winerjee.com 實機展示（樂雲商用實作）
+    └─ 線上 Demo 實機展示（同型架構 reference 實作）
 ```
 
 ---
@@ -153,10 +153,12 @@
   ├─ 串流輸出 → fetch 改用 ReadableStream
   └─ Cron → wrangler.toml 加 [triggers] 排程
 
-5.3 樂雲商用方案介紹（最後 5 min）
-  ├─ Package A — AI 治理 NT$80-150 萬/年
-  ├─ Package B — Zero Trust 整合 NT$400-600 萬/年
-  └─ Package C — 旗艦資安平台 NT$800-1,200 萬/年
+5.3 研究議題探索（最後 5 min）
+  ├─ LLM Routing — 依語意難度動態分流
+  ├─ Cost-aware Caching — 語義 cache 命中策略
+  ├─ Guardrail Evaluation — FP/FN 評估方法
+  ├─ Agentic Safety — MCP tool injection 防護
+  └─ Edge AI Policy — 分散式 policy enforcement
 ```
 
 ---
@@ -166,4 +168,5 @@
 - 一個完整可跑的 Cloudflare Worker 專案（自己的帳號上）
 - 一個可重複部署的程式碼骨架（MIT 授權）
 - 知道如何閱讀 AI Gateway 的 Logs / Analytics
-- 樂雲商用方案聯絡窗口：service@leyun.cloud
+- 可作為碩士論文 / 期末專題起點的 reference 架構
+- 講師技術交流窗口：victor@leyun.cloud
