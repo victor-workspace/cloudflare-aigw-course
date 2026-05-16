@@ -1,0 +1,18 @@
+{
+  "name": "aigw-course-worker",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Cloudflare AI Gateway Course — API Worker",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "db:init": "wrangler d1 execute aigw-course-db --remote --file=../schema/schema.sql",
+    "db:init:local": "wrangler d1 execute aigw-course-db --local --file=../schema/schema.sql",
+    "tail": "wrangler tail"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20240821.1",
+    "typescript": "^5.5.0",
+    "wrangler": "^3.78.0"
+  }
+}

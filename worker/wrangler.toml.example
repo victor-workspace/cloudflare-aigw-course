@@ -1,0 +1,43 @@
+# ==========================================================
+# Cloudflare AI Gateway Course — Worker 設定範本
+# ==========================================================
+# 使用前請複製為 wrangler.toml 並填入你自己的 ID
+#   cp wrangler.toml.example wrangler.toml
+# ==========================================================
+
+name = "aigw-course-api"
+main = "src/index.ts"
+compatibility_date = "2026-01-01"
+compatibility_flags = ["nodejs_compat"]
+
+# ── 環境變數（非敏感）─────────────────────────────────────
+[vars]
+ENVIRONMENT = "production"
+CF_ACCOUNT_ID = "你的 Cloudflare Account ID"
+CF_AI_GATEWAY_ID = "你建立的 AI Gateway ID（例：aigw-course）"
+ANTHROPIC_BYOK_ALIAS = "claude_demo"   # CF Dashboard 內的 BYOK alias 名稱
+# OPENAI_BYOK_ALIAS = "openai_demo"
+# 多個 MCP server 用逗號分隔；":oauth" 後綴代表需 Bearer token
+MCP_SERVER_URLS = "cloudflare-docs=https://docs.mcp.cloudflare.com,radar=https://radar.mcp.cloudflare.com"
+
+# ── D1 ──────────────────────────────────────────────────────
+# 建立：wrangler d1 create aigw-course-db
+[[d1_databases]]
+binding = "DB"
+database_name = "aigw-course-db"
+database_id = "貼上 d1 create 之後輸出的 database_id"
+
+# ── KV Namespaces ───────────────────────────────────────────
+# 建立：wrangler kv namespace create SESSIONS
+[[kv_namespaces]]
+binding = "SESSIONS"
+id = "貼上 SESSIONS 的 namespace id"
+
+# 建立：wrangler kv namespace create RATE_LIMITS
+[[kv_namespaces]]
+binding = "RATE_LIMITS"
+id = "貼上 RATE_LIMITS 的 namespace id"
+
+# ── Secrets（用 wrangler secret put 設定，不要寫在這裡）─────
+# wrangler secret put JWT_SECRET            # 任意長亂數字串，至少 32 字元
+# wrangler secret put CF_AI_GATEWAY_TOKEN   # AI Gateway 的 Authorization token

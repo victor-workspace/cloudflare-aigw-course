@@ -1,0 +1,14 @@
+* { box-sizing: border-box; }
+body { margin: 0; font-family: 'Noto Sans TC', -apple-system, BlinkMacSystemFont, sans-serif; background: #f7f8fa; color: #1a1a1a; }
+input, button, textarea { font-family: inherit; font-size: 14px; padding: 8px 12px; border: 1px solid #d0d7de; border-radius: 6px; }
+button { background: #1E5BC6; color: #fff; border: none; cursor: pointer; }
+button:hover { opacity: 0.9; }
+button:disabled { opacity: 0.5; cursor: not-allowed; }
+.container { max-width: 960px; margin: 24px auto; padding: 0 16px; }
+.card { background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; padding: 16px; margin-bottom: 12px; }
+.msg-user { background: #DBEAFE; padding: 10px 14px; border-radius: 10px; margin: 6px 0; align-self: flex-end; max-width: 75%; }
+.msg-assistant { background: #fff; padding: 10px 14px; border-radius: 10px; margin: 6px 0; border: 1px solid #e5e7eb; max-width: 75%; }
+.chat-list { display: flex; flex-direction: column; gap: 4px; }
+.error { color: #b91c1c; padding: 8px; background: #FEE2E2; border-radius: 6px; }
+.badge-on { color: #15803d; font-weight: bold; }
+.badge-off { color: #6b7280; }

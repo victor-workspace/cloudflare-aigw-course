@@ -1,0 +1,14 @@
+node_modules/
+.wrangler/
+.dev.vars
+.env
+*.log
+
+# Wrangler config with real IDs (use wrangler.toml.example as template)
+worker/wrangler.toml
+frontend/.env
+frontend/dist/
+
+.DS_Store
+.idea/
+.vscode/
