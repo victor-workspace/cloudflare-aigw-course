@@ -6,14 +6,72 @@
 
 ## 📋 前置條件檢核
 
-開課前請學員自行完成以下所有項目：
+開課前請學員自行完成下列**全部**項目。建議至少課前 24 小時完成，遇到問題可在群組提問。
 
-- [ ] 已註冊 [Cloudflare 帳號](https://dash.cloudflare.com)（免費版即可，需信用卡驗證）
-- [ ] Node.js **18 以上** (`node -v` 確認)
-- [ ] 已安裝 Wrangler CLI：`npm i -g wrangler`
-- [ ] 已執行 `wrangler login` 並完成瀏覽器授權
-- [ ] 已有一組 LLM API Key（建議 [Anthropic Console](https://console.anthropic.com) 申請，免費額度足夠課堂使用）
-- [ ] 已 `git clone` 本 repo 並 `npm install`
+### 一、作業系統與終端機
+
+| ✓ | 項目 | 說明 |
+|---|------|------|
+| ☐ | OS：macOS / Windows / Linux | 任一可。Windows 強烈建議搭配 [WSL2 Ubuntu](https://learn.microsoft.com/zh-tw/windows/wsl/install) |
+| ☐ | 熟悉 Terminal 基本操作 | `cd` / `ls` / `git` / `npm` 指令會用 |
+
+### 二、核心開發工具（含下載連結）
+
+| ✓ | 工具 | 用途 | 下載 / 安裝 |
+|---|------|------|-------------|
+| ☐ | **Git** | 版本控制 + clone repo | [git-scm.com/downloads](https://git-scm.com/downloads) ・ macOS：`xcode-select --install` ・ Ubuntu：`sudo apt install git` |
+| ☐ | **Node.js 18+** | JavaScript 執行環境（含 npm） | [nodejs.org/zh-tw/download](https://nodejs.org/zh-tw/download) ・ 建議用 [nvm](https://github.com/nvm-sh/nvm) 管理版本 |
+| ☐ | **Wrangler CLI** | Cloudflare Worker 部署工具 | `npm i -g wrangler`（[官方文件](https://developers.cloudflare.com/workers/wrangler/install-and-update/)） |
+| ☐ | **VS Code**（建議） | 程式編輯器 | [code.visualstudio.com](https://code.visualstudio.com/) ・ 建議套件：ESLint / TypeScript / Tailwind |
+
+驗證指令：
+```bash
+git --version       # 期望：git version 2.x 或以上
+node --version      # 期望：v18.x 以上
+npm --version       # 期望：9.x 以上
+wrangler --version  # 期望：3.x 以上
+```
+
+### 三、雲端帳號與 API Key
+
+| ✓ | 服務 | 用途 | 申請 / 設定 |
+|---|------|------|-------------|
+| ☐ | **Cloudflare 帳號** | 部署 Worker / Pages / D1 / KV | [dash.cloudflare.com/sign-up](https://dash.cloudflare.com/sign-up) ・ 免費版即可，需信用卡驗證 |
+| ☐ | **Wrangler 登入** | 授權 CLI 操作 CF 資源 | `wrangler login` → 瀏覽器完成授權 |
+| ☐ | **Anthropic API Key** | LLM 推論（Claude 系列） | [console.anthropic.com](https://console.anthropic.com/) ・ 註冊送 $5 免費額度足夠課堂 |
+| ☐ | **GitHub 帳號** | clone repo / 課後 PR 貢獻 | [github.com/join](https://github.com/join) |
+
+### 四、Repo 準備
+
+開課前請執行：
+
+```bash
+# 1. 取得程式碼
+git clone https://github.com/victor80122/cloudflare-aigw-course.git
+cd cloudflare-aigw-course
+
+# 2. 安裝 worker 端依賴
+cd worker && npm install
+
+# 3. 安裝 frontend 端依賴
+cd ../frontend && npm install
+
+# 4. 確認 Wrangler 已登入
+wrangler whoami     # 期望：顯示你的 CF 帳號 email
+```
+
+### 五、課前自測（5 分鐘）
+
+最後跑一次健診：
+
+```bash
+cd ../worker
+wrangler dev --local      # 預期：localhost:8787 起來，無報錯
+# 開另一個 terminal: curl http://localhost:8787/health
+# 預期回應：OK
+```
+
+如果以上五步全部 ✓，課堂上就能無痛跟著做。任何步驟卡住請在群組提問，講師與助教會儘速回覆。
 
 ---
 

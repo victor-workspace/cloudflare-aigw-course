@@ -88,9 +88,13 @@ cloudflare-aigw-course/
 
 | 路徑 | 適合對象 |
 |------|---------|
+| [**QUICK-START.md 前置條件檢核**](./QUICK-START.md#-前置條件檢核) | 🔥 **學員開課前必看** — 完整環境準備清單 + 下載連結 |
 | [QUICK-START.md](./QUICK-START.md) | 想 30 分鐘跑起來 |
 | [COURSE-OUTLINE.md](./COURSE-OUTLINE.md) | 想看完整 2 小時 workshop 議程 |
 | [docs/cheatsheet.md](./docs/cheatsheet.md) | wrangler / d1 / kv 指令速查 |
+
+> ⚠️ **開課前 24 小時請完成 [前置條件檢核](./QUICK-START.md#-前置條件檢核)**：
+> Git / Node.js / Wrangler / VS Code / Cloudflare 帳號 / Anthropic API Key 都需要事先準備。
 
 ---
 
