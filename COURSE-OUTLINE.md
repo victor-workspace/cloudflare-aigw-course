@@ -39,10 +39,10 @@
     ├─ 認證：ISO 27001 / 履約保證簽署
     └─ 服務理念：To empower enterprises to do business globally without any risk.
 
-1.2 樂雲三大解決方案 Program
-    ├─ Program 1 — SASE / Zero Trust（新竹物流、中美矽晶案例）
-    ├─ Program 2 — AI Security（鈊象電子、雄獅旅遊案例）
-    └─ Program 3 — ARR / MSSP 訂閱型服務（和雲行動 $5,450/月）
+1.2 樂雲核心服務範疇
+    ├─ 資訊安全：WAF / DDoS / Zero Trust / Email Security
+    ├─ 雲端服務：CDN / Magic WAN / Workers / Pages / D1
+    └─ AI 整合：AI Gateway / Workers AI / Vectorize / Guardrails
 
 1.3 為什麼樂雲選擇 Cloudflare AI Gateway
     ├─ 邊緣運算：300+ PoP，台灣 <5ms
