@@ -66,10 +66,21 @@ wrangler whoami     # 期望：顯示你的 CF 帳號 email
 
 ```bash
 cd ../worker
-wrangler dev --local      # 預期：localhost:8787 起來，無報錯
-# 開另一個 terminal: curl http://localhost:8787/health
-# 預期回應：OK
+
+# 先建立基本配置檔（詳細 ID 填寫在課堂完成）
+cp wrangler.toml.example wrangler.toml
+
+# 測試啟動（會有 binding 警告是正常的，因為還沒建立 D1/KV）
+wrangler dev --local      
+# 預期：localhost:8787 起來，看到 "Ready on http://localhost:8787"
+# D1/KV binding 警告可以忽略，課堂上會設定
+
+# 開另一個 terminal 測試（可選）
+# curl http://localhost:8787/health
+# 預期回應：可能會因為 DB binding 缺失而報錯，這是正常的
 ```
+
+> ⚠️ **重要**：此階段只確認 wrangler 能正常啟動即可。D1/KV/Secrets 等完整設定會在課堂上的 Step 3-4 完成。
 
 如果以上五步全部 ✓，課堂上就能無痛跟著做。任何步驟卡住請在群組提問，講師與助教會儘速回覆。
 
@@ -117,9 +128,21 @@ wrangler kv namespace create RATE_LIMITS
 
 ## Step 4｜設定 wrangler.toml（5 min）
 
+> 💡 如果課前自測已建立 wrangler.toml，跳過複製步驟，直接編輯即可。
+
 ```bash
-cp wrangler.toml.example wrangler.toml
-# 編輯 wrangler.toml，填入上面 3 個 ID + 你的 CF Account ID + AI Gateway ID
+# 如果還沒建立，先複製範本
+[ ! -f wrangler.toml ] && cp wrangler.toml.example wrangler.toml
+
+# 用編輯器打開 wrangler.toml（VS Code / vim / nano 皆可）
+code wrangler.toml   # 或 vim wrangler.toml
+
+# 填入以下 5 個值：
+# 1. CF_ACCOUNT_ID          → 你的 Cloudflare Account ID（Dashboard 右側可看到）
+# 2. CF_AI_GATEWAY_ID       → Step 1 建立的 Gateway ID（例如：aigw-course）
+# 3. database_id            → Step 3 建立 D1 時輸出的 ID
+# 4. SESSIONS 的 id         → Step 3 建立 KV namespace 時輸出的第一個 ID
+# 5. RATE_LIMITS 的 id      → Step 3 建立 KV namespace 時輸出的第二個 ID
 ```
 
 設定 Secrets：
