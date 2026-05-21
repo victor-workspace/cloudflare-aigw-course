@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { api } from '../api';
 
 export function LoginPage() {
@@ -9,7 +8,6 @@ export function LoginPage() {
   const [name, setName] = useState('');
   const [err, setErr] = useState('');
   const [busy, setBusy] = useState(false);
-  const nav = useNavigate();
 
   async function submit(e: React.FormEvent) {
     e.preventDefault();
@@ -24,7 +22,7 @@ export function LoginPage() {
         localStorage.setItem('access_token', r.accessToken);
         localStorage.setItem('refresh_token', r.refreshToken);
         localStorage.setItem('user_email', r.user.email);
-        nav('/chat');
+        window.location.href = '/chat';
       }
     } catch (e) { setErr(String(e)); }
     finally { setBusy(false); }

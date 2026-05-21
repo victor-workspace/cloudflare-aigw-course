@@ -36,8 +36,11 @@ export function err(error: string, status: number, details?: Record<string, unkn
 }
 
 // ── Base64URL ────────────────────────────────────────────────
-function base64url(buf: ArrayBuffer): string {
-  return btoa(String.fromCharCode(...new Uint8Array(buf)))
+function base64url(input: ArrayBuffer | ArrayBufferView): string {
+  const bytes = ArrayBuffer.isView(input)
+    ? new Uint8Array(input.buffer, input.byteOffset, input.byteLength)
+    : new Uint8Array(input);
+  return btoa(String.fromCharCode(...bytes))
     .replace(/\+/g, '-').replace(/\//g, '_').replace(/=/g, '');
 }
 
@@ -58,8 +61,8 @@ async function hmacKey(secret: string): Promise<CryptoKey> {
 
 export async function signJWT(payload: object, secret: string): Promise<string> {
   const enc = new TextEncoder();
-  const header = base64url(enc.encode(JSON.stringify({ alg: 'HS256', typ: 'JWT' })).buffer);
-  const body = base64url(enc.encode(JSON.stringify(payload)).buffer);
+  const header = base64url(enc.encode(JSON.stringify({ alg: 'HS256', typ: 'JWT' })));
+  const body = base64url(enc.encode(JSON.stringify(payload)));
   const key = await hmacKey(secret);
   const sig = await crypto.subtle.sign('HMAC', key, enc.encode(`${header}.${body}`));
   return `${header}.${body}.${base64url(sig)}`;
